@@ -1,0 +1,13 @@
+{:source-paths
+ ["src"]
+
+ :dependencies
+ []
+
+ :builds
+ {:script
+  {:target :node-script
+   :main calculator.core/-main
+   :output-to "target/calc.js"}}
+
+ :nrepl {:port 9000}}
