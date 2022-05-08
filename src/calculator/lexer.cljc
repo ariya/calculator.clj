@@ -2,7 +2,8 @@
 
 (defn- codepoint-count
   [str]
-  (.codePointCount str 0 (count str)))
+  #?(:clj (.codePointCount str 0 (count str)))
+  #?(:cljs (count str)))
 
 (defn- string->codepoints
   [str]
@@ -91,7 +92,8 @@
           {:type :Number :pos space-len :len num-len
            :str (map char (take num-len trimmed))}
           (when (seq trimmed)
-            (throw (Exception.
+            (throw (#?(:clj Exception.)
+                    #?(:cljs js/Error.)
                     (str "Invalid character " (-> trimmed first char))))))))))
 
 (defn ^:export tokens

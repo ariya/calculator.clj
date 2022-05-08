@@ -1,14 +1,18 @@
 (ns calculator.evaluator)
 
+(defn- string->number [str]
+  #?(:clj (Double/parseDouble str))
+  #?(:cljs (js/Number.parseFloat str)))
+
 (defmulti calc
   "Traverses the syntax tree, performs the evaluation,
    and return the result."
   first)
 
 (defmethod calc :default [node]
-  (throw (Exception. (str "Unknown node type " (first node)))))
+  (throw (str "Unknown node type " (first node))))
 
-(defmethod calc :Number [node] (-> node second Double/parseDouble))
+(defmethod calc :Number [node] (-> node second string->number))
 
 (defmethod calc :Group [node] (-> node second calc))
 

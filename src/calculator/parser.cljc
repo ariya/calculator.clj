@@ -3,9 +3,11 @@
 
 (defn- throw-unexpected
   "Throws an exception indicating an unexpected token"
-  ([] (throw (Exception. "Unexpected EOF")))
+  ([] (throw (#?(:clj Exception.)
+              #?(:cljs js/Error.) "Unexpected EOF")))
   ([tokens]
-   (throw (Exception.
+   (throw (#?(:clj Exception.)
+           #?(:cljs js/Error.)
            (if (seq tokens)
              (str "Unexpected token at " (-> tokens first :pos))
              "Unexpected EOF")))))

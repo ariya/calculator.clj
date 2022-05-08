@@ -1,5 +1,5 @@
 (ns calculator.core
-  (:gen-class)
+  #?(:clj (:gen-class))
   (:require [clojure.string :refer (join)]
             [calculator.lexer :refer (tokens)]
             [calculator.parser :refer (syntax-tree)]
@@ -8,4 +8,5 @@
 (defn -main [& args]
   (try
     (->> args (join " ") tokens syntax-tree calc prn)
-    (catch Exception e (println (str "Error: " (ex-message e))))))
+    (catch #?(:clj Exception)
+           #?(:cljs js/Error) e (println (str "Error: " (ex-message e))))))
