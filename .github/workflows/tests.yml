@@ -21,4 +21,3 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: lein run "2 + (5 * 6 + 10)"
-
