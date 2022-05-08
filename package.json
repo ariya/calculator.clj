@@ -1,0 +1,13 @@
+{
+  "name": "calculator",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "build": "shadow-cljs release script",
+    "calc": "node target/calc.js"
+  },
+  "devDependencies": {
+    "shadow-cljs": "~2.18.0"
+  },
+  "dependencies": {}
+}
