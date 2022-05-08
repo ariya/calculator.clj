@@ -2,12 +2,18 @@
 
 This is a simple math expression evaluator written in [Clojure](https://clojure.org).
 
-Requirements: [Java](https://adoptium.net), [Leiningen](https://leiningen.org).
-
-Try it:
+With [Java](https://adoptium.net) and [Leiningen](https://leiningen.org):
 ```
 $ lein run "2 + (5 * 6 + 10)"
 42.0
+```
+
+With [JavaScript](https://www.ecma-international.org/publications-and-standards/standards/ecma-262/) and [Node.js](https://nodejs.org):
+```
+$ npm install
+$ npm run build
+$ npm run calc "2 + (5 * 6 + 10)"
+42
 ```
 
 Supported features:
