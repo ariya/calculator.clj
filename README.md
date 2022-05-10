@@ -8,13 +8,13 @@ $ lein run "2 + (5 * 6 + 10)"
 42.0
 ```
 
-With [Babashka](https://babashka.org/):
+With [Babashka](https://babashka.org/) or [nbb](https://github.com/babashka/nbb):
 ```
 $ bb --classpath src -m calculator.core "2 + (5 * 6 + 10)"
 42.0
+$ npx nbb --classpath src --main calculator.core "2 + (5 * 6 + 10)"
+42.0
 ```
-
-
 
 With [JavaScript](https://www.ecma-international.org/publications-and-standards/standards/ecma-262/) and [Node.js](https://nodejs.org):
 ```
