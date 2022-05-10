@@ -29,24 +29,14 @@
 (defn- count-whitespaces
   "Count whitespaces at the beginning of the codepoints vector."
   [codepoints]
-  (reduce
-   (fn [len cp]
-     (if (is-whitespace? cp)
-       (inc len)
-       (reduced len)))
-   0 codepoints))
+  (count (take-while is-whitespace? codepoints)))
 
 (defn- integer-token
   "Scans an integer number at the beginning of the input,
    returns the total count of characters represented by the number,
    or `0` if no integer number is recognized."
   [codepoints]
-  (reduce
-   (fn [len cp]
-     (if (is-digit? cp)
-       (inc len)
-       (reduced len)))
-   0 codepoints))
+  (count (take-while is-digit? codepoints)))
 
 (defn- fractional-token
   "Scans the fractional part of a number at the beginning of the input,
