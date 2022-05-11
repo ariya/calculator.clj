@@ -20,12 +20,9 @@
 
 (defmethod calc :Slash [node] (reduce / (map calc (rest node))))
 
-(defn- is-unary? [node] (= (count node) 2))
+(defmethod calc :Plus [node] (reduce + (map calc (rest node))))
 
-(defmethod calc :Plus [node]
-  (if (is-unary? node)
-    (-> node second calc)
-    (reduce + (map calc (rest node)))))
+(defn- is-unary? [node] (= (count node) 2))
 
 (defmethod calc :Minus [node]
   (if (is-unary? node)
