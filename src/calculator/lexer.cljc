@@ -13,11 +13,8 @@
 (defn- is-whitespace?
   "Returns true if the Unicode codepoint represents a whitespace."
   [cp]
-  (or (= cp 9)   ;; tab
-      (= cp 10)  ;; line feed
-      (= cp 13)  ;; carriage return
-      (= cp 32)  ;; space
-      ))
+  (contains? #{9 10 13 32}   ;; tab, line feed, carriage return, space
+             cp))
 
 (defn- is-digit?
   "Returns true if the Unicode codepoint represents a decimal digit."
