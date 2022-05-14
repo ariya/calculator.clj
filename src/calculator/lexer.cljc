@@ -22,7 +22,7 @@
 (defn- is-digit?
   "Returns true if the Unicode codepoint represents a decimal digit."
   [cp]
-  (and (>= cp 48) (<= cp 57))) ;; 0..9
+  (< 47 cp 58)) ;; 0..9
 
 ;; Why not clojurestring/triml? We may have different whitespaces definition
 
