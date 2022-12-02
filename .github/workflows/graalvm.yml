@@ -15,5 +15,5 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
     - run: lein uberjar
     - name: Build with native-image
-      run: native-image -jar target/uberjar/calculator-0.1.0-SNAPSHOT-standalone.jar calc
+      run: native-image -jar target/default+uberjar/calculator-0.1.0-SNAPSHOT-standalone.jar calc
     - run: ./calc "2 + (5 * 6 + 10)"
