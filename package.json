@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "build": "shadow-cljs release script",
-    "calc": "node target/calc.js"
+    "calc": "node target/calc.js",
+    "nbb-nrepl": "nbb nrepl-server :port 9000"
   },
   "devDependencies": {
+    "nbb": "~1.1.151",
     "shadow-cljs": "~2.20.13"
   },
   "dependencies": {}
