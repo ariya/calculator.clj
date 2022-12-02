@@ -6,26 +6,26 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - run: lein test
 
   lint:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Run clj-kondo
       run: docker run -v $PWD:/calc --rm cljkondo/clj-kondo clj-kondo --lint /calc
 
   run-clojure:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - run: lein run "2 + (5 * 6 + 10)"
 
   run-clojurescript:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
       with:
         node-version: 14
