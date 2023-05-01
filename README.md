@@ -44,7 +44,7 @@ Compiling calculator.core
 Compiling calculator.evaluator
 Compiling calculator.lexer
 Compiling calculator.parser
-$ native-image --no-fallback -jar target/default+uberjar/calculator-0.1.0-SNAPSHOT-standalone.jar calc
+$ native-image --no-fallback -jar target/uberjar/calculator-0.1.0-SNAPSHOT-standalone.jar calc
 42.0
 GraalVM Native Image: Generating 'calc' (executable)...
 [1/7] Initializing...
